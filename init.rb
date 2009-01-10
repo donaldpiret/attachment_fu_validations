@@ -42,7 +42,7 @@ Technoweenie::AttachmentFu::InstanceMethods.module_eval do
       enum = attachment_options[attr_name]
       # Support Rails 2.2 translations, and older default message hash
       begin
-        inclusion_error = I18n.t(:"attachment_fu.error_messages.no_#{attr_name}", :default => :'activerecord.errors.messages.inclusion')
+        inclusion_error = I18n.t(:"attachment_fu.error_messages.no_#{attr_name}", :default => :'activerecord.errors.messages.inclusion', :attribute => attr_name)
       rescue NameError
         inclusion_error = ActiveRecord::Errors.default_error_message[:inclusion]
       end
